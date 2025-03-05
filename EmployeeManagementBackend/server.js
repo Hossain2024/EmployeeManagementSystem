@@ -5,16 +5,14 @@ const cors = require('cors')
 
 const app= express()
 app.use(cors())
-app.use(express.json)
+app.use(express.json())
 
 const db = mysql.createConnection({
     host: "localhost",
     user : "root",
     password:'Roza2002',
     database:'Emp_Management',
-    port:3306,
-    connectTimeout: 100000
-
+    port:3306
 })
 
 app.get('/', (re, res)=>{
@@ -78,6 +76,14 @@ app.post('/Employee', (req, res) => {
         return res.status(201).json({ message: 'Employee created successfully!', data: result });
     });
 });
+
+app.get('/Employee', (req, res)=> {
+    const sql = "SELECT* FROM Employee";
+    db.query(sql, (err, data)=>{
+        if(err) return res.json(err);
+        return res.json(data);
+    })
+})
 
 /**
  * edit an emplyee
