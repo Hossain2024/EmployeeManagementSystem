@@ -7,10 +7,10 @@ const app= express()
 app.use(cors())
 
 const db = mysql.createConnection({
-    host: "db host",
-    user : "db user",
-    password:'db password',
-    database:'your database name',
+    host: "localhost",
+    user : "root",
+    password:'Roza2002',
+    database:'Emp_Management',
     port:3306
 
 })
@@ -30,3 +30,12 @@ app.get('/Email', (req, res)=> {
     })
 })
 
+
+app.listen(8081, ()=>{
+    console.log("listening")
+
+})
+
+/**
+ * 
+ */
