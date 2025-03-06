@@ -244,3 +244,35 @@ app.get('/employeesForProject/:projectID', (req, res) => {
         res.status(200).json(results);
     });
 });
+
+//assign projects to certain employees 
+app.post('/assignTraining', (req, res) => {
+    const { EmployeeID, TrainingID, ProjectID, status } = req.body;
+    
+    // Check if required fields are provided
+    if (!EmployeeID || !TrainingID || !ProjectID || !status) {
+        return res.status(400).send({ message: 'Missing required fields' });
+    }
+    
+    const query = `
+        INSERT INTO EmpTraining (EmployeeID, TrainingID, ProjectID, status)
+        VALUES (?, ?, ?, ?)
+    `;
+
+    db.query(query, [EmployeeID, TrainingID, ProjectID, status], (err, result) => {
+        if (err) {
+            console.log('Error inserting into EmpTraining:', err);
+            return res.status(500).send({ message: 'Error inserting data' });
+        }
+        res.status(201).send({ message: 'Training assigned successfully', result });
+    });
+});
+
+app.get('/assignTraining', (req, res)=> {
+    const sql = "SELECT* FROM EmpTraining";
+    db.query(sql, (err, data)=>{
+        if(err) return res.json(err);
+        return res.json(data);
+    })
+})
+
