@@ -7,10 +7,11 @@ const app= express()
 app.use(cors())
 app.use(express.json)
 
+
 const db = mysql.createConnection({
     host: "localhost",
     user : "root",
-    password:'Roza2002',
+    password:'6042713138aR',
     database:'Emp_Management',
     port:3306,
     connectTimeout: 100000
@@ -21,9 +22,20 @@ app.get('/', (re, res)=>{
     return res.json("from backend side");
 })
 
+db.connect((err) => {
+    if (err) {
+        console.error('Error connecting to the database:', err);
+        process.exit(1); // Exit the process if the connection fails
+    } else {
+        console.log('Successfully connected to the database');
+    }
+})
+
+
 /**
  * retrieve email data
  */
+
 app.get('/Email', (req, res)=> {
     const sql = "SELECT* FROM Email";
     db.query(sql, (err, data)=>{
@@ -31,7 +43,6 @@ app.get('/Email', (req, res)=> {
         return res.json(data);
     })
 })
-
 
 app.listen(8081, ()=>{
     console.log("listening")
@@ -41,6 +52,7 @@ app.listen(8081, ()=>{
 /**
  * Add
  */
+/*
 app.post('/Employee', (req, res) => {
     const {
         FirstName,
@@ -77,12 +89,12 @@ app.post('/Employee', (req, res) => {
 
         return res.status(201).json({ message: 'Employee created successfully!', data: result });
     });
-});
+});*/
 
 /**
  * edit an emplyee
  */
-
+/*
 app.put('/Employee/:id', (req, res) => {
     const employeeId = req.params.id; 
     const {
@@ -137,4 +149,4 @@ app.put('/Employee/:id', (req, res) => {
 
         return res.status(200).json({ message: 'Employee updated successfully!', data: result });
     });
-});
+});*/
