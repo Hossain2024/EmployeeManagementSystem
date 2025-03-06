@@ -1,4 +1,3 @@
-
 const express = require('express')
 const mysql = require('mysql2')
 const cors = require('cors')
@@ -312,4 +311,29 @@ app.get('/leave-requests', (req, res) => {
     }
   });
 });
+
+/**
+ * get project and nubmer of emplyees for a particualr project 
+ */
+app.get('/departments', (req, res) => {
+    const query = `
+      SELECT 
+        d.Dept_Name,
+        d.Dept_Description,
+        d.Num_Of_Employees,
+        COUNT(p.ProjectID) AS TotalProjects,
+        GROUP_CONCAT(p.Name SEPARATOR ', ') AS ProjectNames
+      FROM Department d
+      LEFT JOIN Project p ON d.DepartmentID = p.DepartmentID
+      GROUP BY d.DepartmentID;
+    `;
+    
+    db.query(query, (err, results) => {
+      if (err) {
+        res.status(500).json({ error: 'Failed to fetch departments and projects' });
+      } else {
+        res.json(results);
+      }
+    });
+  });
   
