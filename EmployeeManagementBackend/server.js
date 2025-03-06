@@ -276,3 +276,29 @@ app.get('/assignTraining', (req, res)=> {
     })
 })
 
+
+/**
+ * 
+ */
+app.get('/leave-requests', (req, res) => {
+    const query = `
+    SELECT 
+      e.EmployeeID,
+      e.FirstName,
+      e.LastName,
+      COUNT(lr.LeaveRequestID) AS TotalNumberOfRequests
+    FROM LeaveRequest lr
+    JOIN Employee e ON lr.EmployeeID = e.EmployeeID
+    GROUP BY e.EmployeeID, e.FirstName, e.LastName
+    ORDER BY TotalNumberOfRequests DESC;
+  `;
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      res.status(500).json({ error: 'Failed to fetch total leave requests per employee' });
+    } else {
+      res.json(results);
+    }
+  });
+});
+  
