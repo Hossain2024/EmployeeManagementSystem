@@ -3,7 +3,11 @@ import { useEffect, useState } from 'react';
 import ProjectList from './projectcomponent';
 import AssignProjectForm from './assignprojectform';
 import AssignedProject from './Assingedprojects';
-
+import  ApprovedLeaveRequests from './leaverequestcomponent'
+import PendingLeaveRequests from './onleavecomponent'
+import AssignTrainingForm from './assigntrainingform'
+import AssignedTrainingTable from './trainingdata'
+import LeavesRequestList from './sortedleaves.jsx'
 function App() {
   const [data, setData] = useState([]);
 
@@ -276,6 +280,8 @@ function LeaveRequests() {
   return (
     <div>
       <h2>Leave Requests</h2>
+      <PendingLeaveRequests/>
+      
     </div>
   );
 }
@@ -284,6 +290,7 @@ function OnLeave() {
   return (
     <div>
       <h2>Employees on Leave</h2>
+      {<ApprovedLeaveRequests />}
     </div>
   );
 }
@@ -299,12 +306,13 @@ function Training() {
     <div>
       <h2>Projects</h2>
       <button onClick={openModal}>Add Training</button>
-
+      {<AssignedTrainingTable />}
+      
       {showModal && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-button" onClick={closeModal}>X</button>
-            {/* Blank content for now */}
+            {<AssignTrainingForm />}
           </div>
         </div>
       )}
@@ -353,6 +361,7 @@ function Analysis() {
   return (
     <div>
       <h2>Analysis</h2>
+      {<LeavesRequestList/>}
     </div>
   );
 }
@@ -382,4 +391,4 @@ function EmployeeBenefits() {
 }
 
 
-export default App;
+export default App
