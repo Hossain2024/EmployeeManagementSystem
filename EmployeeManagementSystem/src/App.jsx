@@ -1,3 +1,7 @@
+/**
+ * 
+ * Main page contains navigations to each page
+ */
 import { BrowserRouter as Router, Routes, Route, Link, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import ProjectList from './projectcomponent';
@@ -9,15 +13,6 @@ import AssignTrainingForm from './assigntrainingform'
 import AssignedTrainingTable from './trainingdata'
 import LeavesRequestList from './sortedleaves.jsx'
 function App() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:8081/Email')
-      .then((res) => res.json())
-      .then((data) => setData(data))
-      .catch((err) => console.error('Error fetching data:', err));
-  }, []);
-
   return (
     <Router>
       <div>
@@ -77,7 +72,7 @@ function App() {
           </button>
         </div>
 
-        {/* Define routes for different pages */}
+        {/* Routes for different pages */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/employees" element={<Employees data={data} />} />
@@ -173,7 +168,11 @@ function Employees({ data }) {
     </div>
     );
 }
-
+/**
+ * 
+ * @param {data} param0 
+ * @returns the content of the update info tab
+ */
 function UpdateInfo({ data }) {
   return (
     <div>
@@ -182,6 +181,11 @@ function UpdateInfo({ data }) {
   );
 }
 
+/**
+ * 
+ * @param {data} param0 
+ * @returns attendance data  
+ */
 function AttendanceStatus({ data }) {
   return (
     <div>
@@ -189,7 +193,11 @@ function AttendanceStatus({ data }) {
     </div>
   );
 }
-
+/**
+ * this tab allows users to assign a project and see a list of project and  see a list of assignedproject 
+ * along with the emplyees working on that project
+ * @returns content of project tab
+ */
 function Projects() {
   const [showModal, setShowModal] = useState(false);
 
@@ -207,7 +215,7 @@ function Projects() {
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-button" onClick={closeModal}>X</button>
-            {<AssignProjectForm />}
+            {<AssignProjectForm />} {/** form component to assign a project*/}
           </div>
         </div>
       )}
@@ -254,9 +262,6 @@ function Projects() {
   );
 }
 
-//export default Projects;
-
-
 function Leaves() {
   return (
     <div>
@@ -276,6 +281,10 @@ function Leaves() {
   );
 }
 
+/**
+ * shows enployees who has submitted leaverequests and pending 
+ * @returns pendingLeaveRequest
+ */
 function LeaveRequests() {
   return (
     <div>
@@ -285,7 +294,10 @@ function LeaveRequests() {
     </div>
   );
 }
-
+/**
+ * shows employees who are on leave 
+ * @returns ApprovedLeaverequestcomponent
+ */
 function OnLeave() {
   return (
     <div>
@@ -294,7 +306,10 @@ function OnLeave() {
     </div>
   );
 }
-
+/**
+ * In this tab user will be able to add 
+ * @returns trainingcomponent
+ */
 function Training() {
   const [showModal, setShowModal] = useState(false);
 
@@ -306,13 +321,13 @@ function Training() {
     <div>
       <h2>Projects</h2>
       <button onClick={openModal}>Add Training</button>
-      {<AssignedTrainingTable />}
+      {<AssignedTrainingTable />} {/*assigned trainging table*/}
       
       {showModal && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-button" onClick={closeModal}>X</button>
-            {<AssignTrainingForm />}
+            {<AssignTrainingForm />} {/** form to assign table */}
           </div>
         </div>
       )}
@@ -357,15 +372,20 @@ function Training() {
   );
 }
 
+/**
+ * retuns the number of leave request each employee made
+ * @returns LeavesRequestList component 
+ */
 function Analysis() {
   return (
     <div>
       <h2>Analysis</h2>
-      {<LeavesRequestList/>}
+      {<LeavesRequestList/>}  
     </div>
   );
 }
 
+/
 function Roles() {
   return (
     <div>

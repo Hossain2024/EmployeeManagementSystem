@@ -1,8 +1,12 @@
+/**
+ * pending leave request component , shows first and last nae of employees whos leave requests are pending 
+ */
+
 import { useState, useEffect } from 'react';
 
 function PendingLeaveRequests() {
   const [pendingRequests, setPendingRequests] = useState([]);
-
+ 
   useEffect(() => {
     fetch('http://localhost:8081/leave-requestslist')
       .then((response) => response.json())

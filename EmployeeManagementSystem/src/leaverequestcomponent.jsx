@@ -1,3 +1,8 @@
+/**
+ * Approved leaverequest component, shows the first name and last name of emplyess that 
+ * are on leave 
+ */
+
 import { useState, useEffect } from 'react';
 
 function ApprovedLeaveRequests() {

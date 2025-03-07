@@ -1,3 +1,6 @@
+/**
+ * gives a list of  number of leaveRequests per employee 
+ */
 import React, { useState, useEffect } from 'react';
 import './analysis.css'; 
 

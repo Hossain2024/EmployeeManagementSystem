@@ -1,3 +1,6 @@
+/**
+ * API to fetch data 
+ */
 const express = require('express')
 const mysql = require('mysql2')
 const cors = require('cors')
@@ -6,6 +9,9 @@ const app= express()
 app.use(cors())
 app.use(express.json())
 
+/**
+ * connecting to db 
+ */
 const db = mysql.createConnection({
     host: "localhost",
     user : "root",
@@ -46,7 +52,7 @@ app.listen(8081, ()=>{
 })
 
 /**
- * Add
+ * Add an Employee
  */
 
 app.post('/Employee', (req, res) => {
@@ -86,7 +92,9 @@ app.post('/Employee', (req, res) => {
         return res.status(201).json({ message: 'Employee created successfully!', data: result });
     });
 });
-
+/**
+ * Get employees
+ */
 app.get('/Employee', (req, res)=> {
     const sql = "SELECT* FROM Employee";
     db.query(sql, (err, data)=>{
@@ -96,7 +104,7 @@ app.get('/Employee', (req, res)=> {
 })
 
 /**
- * get training
+ * get trainings data 
  */
 app.get('/training', (req, res)=> {
     const sql = "SELECT* FROM TRAINING";
@@ -194,7 +202,7 @@ app.get('/attendance', (req, res) => {
         res.status(200).json(result[0]);
     });
 });
-// assign project
+// assign project to an employee
 app.post('/assignProject', (req, res) => {
     const { FirstName, LastName, ProjectName, AssignedDate } = req.body;
 
@@ -223,7 +231,7 @@ app.post('/assignProject', (req, res) => {
 });
 
 
-// get all project
+// get all projects available
 app.get('/projects', (req, res) => {
     const query = `
         SELECT 
@@ -246,7 +254,7 @@ app.get('/projects', (req, res) => {
         res.status(200).json(results);
     })
 })
-// assign a project 
+
 
 //get all  assined projects
 app.get('/Assigned_Project', (req, res) => {
@@ -268,7 +276,9 @@ app.get('/Assigned_Project', (req, res) => {
 });
 
 
-//get all the employees assinged to a particualr project 
+/*
+get all the employees assinged to a particualr project 
+*/
 app.get('/employeesForProject/:projectName', (req, res) => {
     const projectName = req.params.projectName;
 
@@ -299,7 +309,9 @@ app.get('/employeesForProject/:projectName', (req, res) => {
     });
 });
 
-//assign Training to certain employees 
+/**
+ * Assign training to certain employees
+ */
 app.post('/assign-training', (req, res) => {
     const { FirstName, LastName, Name, Title, Status } = req.body;
 
@@ -329,7 +341,9 @@ app.post('/assign-training', (req, res) => {
 });
 
 
-
+/**
+ * get list of assigned training 
+ */
 app.get('/assignedTraining', (req, res) => {
     const sql = `
         SELECT 
@@ -356,7 +370,7 @@ app.get('/assignedTraining', (req, res) => {
 
 
 /**
- * leave request
+ * get a list of leave requests with count per employee 
  */
 app.get('/leave-requests', (req, res) => {
     const query = `
@@ -380,6 +394,9 @@ app.get('/leave-requests', (req, res) => {
   });
 });
 
+/**
+ * get each leave request details 
+ */
 
 app.get('/leave-requestslist', (req, res) => {
     const query = `
@@ -401,7 +418,8 @@ app.get('/leave-requestslist', (req, res) => {
   });
 });
 /**
- * get project and nubmer of emplyees for a particualr project 
+ * get Department information and project by department, 
+ * and number of employees in the depatment 
  */
 app.get('/departments', (req, res) => {
     const query = `

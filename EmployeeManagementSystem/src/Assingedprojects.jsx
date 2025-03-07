@@ -1,3 +1,8 @@
+/**
+ * Assignedproject component . shows a list of project assigned to people and 
+ * when clicked shows the emplyees the project is assigned to 
+ */
+
 import { useState, useEffect } from 'react';
 
 function AssignedProject() {
