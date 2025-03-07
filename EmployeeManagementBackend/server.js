@@ -9,7 +9,7 @@ app.use(express.json())
 const db = mysql.createConnection({
     host: "localhost",
     user : "root",
-    password:'6042713138aR',
+    password:'Roza2002',
     database:'Emp_Management',
     port:3306
 })
@@ -183,7 +183,7 @@ app.get('/attendance', (req, res) => {
         res.status(200).json(result[0]);
     });
 });
-
+// assign project
 app.post('/assignProject', (req, res) => {
     const { FirstName, LastName, ProjectName, AssignedDate } = req.body;
 
@@ -212,39 +212,72 @@ app.post('/assignProject', (req, res) => {
 });
 
 
-// get all the assinged project
+// get all project
 app.get('/projects', (req, res) => {
-    const query = 'SELECT * FROM Project;';
+    const query = `
+        SELECT 
+            p.ProjectID, 
+            p.Name AS ProjectName, 
+            p.Start_Date, 
+            p.Delivery_Date, 
+            p.Status, 
+            d.Dept_Name AS DepartmentName
+        FROM 
+            Project p
+        JOIN 
+            Department d ON p.DepartmentID = d.DepartmentID;
+    `;
     
     db.query(query, (err, results) => {
         if (err) {
-            return res.status(500).send({ message: 'Error fetching projects' });
+            return res.status(500).send({ message: 'Error fetching projects', err });
         }
         res.status(200).json(results);
     })
 })
-//get all projects
-app.get('/Assigned_Project', (req, res)=> {
-    const sql = "SELECT* FROM Assigned_Project";
-    db.query(sql, (err, data)=>{
-        if(err) return res.json(err);
+// assign a project 
+
+//get all  assined projects
+app.get('/Assigned_Project', (req, res) => {
+    const sql = `
+        SELECT 
+            Assigned_Project.ProjectID, 
+            Project.Name 
+        FROM 
+            Assigned_Project
+        JOIN 
+            Project 
+        ON 
+            Assigned_Project.ProjectID = Project.ProjectID
+    `;
+    db.query(sql, (err, data) => {
+        if (err) return res.json(err);
         return res.json(data);
-    })
-})
+    });
+});
+
 
 //get all the employees assinged to a particualr project 
-app.get('/employeesForProject/:projectID', (req, res) => {
-    const projectID = req.params.projectID;
-    
-    // SQL query to join Assigned_Project with Employee to get first and last names
+app.get('/employeesForProject/:projectName', (req, res) => {
+    const projectName = req.params.projectName;
+
+    // SQL query to join Assigned_Project, Employee, and Project tables
     const query = `
-        SELECT e.FirstName, e.LastName
-        FROM Assigned_Project ap
-        JOIN Employee e ON ap.EmployeeID = e.EmployeeID
-        WHERE ap.ProjectID = ?
+        SELECT 
+            e.FirstName, 
+            e.LastName, 
+            p.Name AS ProjectName
+        FROM 
+            Assigned_Project ap
+        JOIN 
+            Employee e ON ap.EmployeeID = e.EmployeeID
+        JOIN 
+            Project p ON ap.ProjectID = p.ProjectID
+        WHERE 
+            p.Name = ?
     `;
     
-    db.query(query, [projectID], (err, results) => {
+    db.query(query, [projectName], (err, results) => {
         if (err) {
             return res.status(500).send({ message: 'Error fetching employees for the project' });
         }
