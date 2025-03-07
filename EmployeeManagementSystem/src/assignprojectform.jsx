@@ -9,7 +9,7 @@ function AssignProjectForm() {
   const [assignedDate, setAssignedDate] = useState('');
   const [message, setMessage] = useState('');
 
-  // Fetch projects and employees
+  // Fetch projects and employees data
   useEffect(() => {
     fetch('http://localhost:8081/projects')
       .then((response) => response.json())
@@ -42,7 +42,7 @@ function AssignProjectForm() {
     .then(response => response.json())
     .then(data => {
       if (data.message) {
-        setMessage(data.message);  // Set success message from the server
+        setMessage(data.message);  
         alert(data.message);  // Show success message as an alert
         // Reset form fields after success
         setSelectedProjectName('');

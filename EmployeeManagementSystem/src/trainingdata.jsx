@@ -1,3 +1,7 @@
+/**
+ * shows a list of training and to whom it is assigned to
+ */
+
 import React, { useState, useEffect } from 'react';
 import './assinedtraining.css'
 const AssignedTrainingTable = () => {

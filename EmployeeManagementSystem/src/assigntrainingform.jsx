@@ -1,3 +1,6 @@
+/**
+ * Form to assign training
+ */
 import { useState, useEffect } from 'react';
 
 function AssignTrainingForm() {
@@ -11,7 +14,9 @@ function AssignTrainingForm() {
     Title: '',
     Status: 'ongoing'
   });
-
+/**
+ * fetch Employee, project and training data 
+ */
   useEffect(() => {
     fetch('http://localhost:8081/Employee')
       .then(res => res.json())
@@ -67,7 +72,7 @@ function AssignTrainingForm() {
 
       <label>Project:</label>
       <select name="Name" onChange={handleChange} required>
-        <option value="">Select Project</option>
+        <option value="">Select Project</option> {/** dropdown to select from*/}
         {projects.map(proj => (
           <option key={proj.ProjectID} value={proj.ProjectName}>{proj.ProjectName}</option>
         ))}

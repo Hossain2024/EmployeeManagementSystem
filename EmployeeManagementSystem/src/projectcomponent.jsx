@@ -1,3 +1,6 @@
+/**
+ * a composnt that shows a list of project and their deparemtn 
+ */
 import { useState, useEffect } from 'react';
 import './projectlist.css'
 

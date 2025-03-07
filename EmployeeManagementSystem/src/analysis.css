@@ -1,3 +1,7 @@
+/**
+* CSS for the aalysis tab
+**/
+
 .container {
     padding: 2rem;
 }
@@ -11,11 +15,11 @@
 .leave-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 1.25rem; /* Larger font size */
+    font-size: 1.25rem;
 }
 
 .leave-table th, .leave-table td {
-    padding: 1rem 2rem; /* Add spacing inside cells */
+    padding: 1rem 2rem; 
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
@@ -30,7 +34,7 @@
 }
 
 .leave-table td:not(:last-child) {
-    padding-right: 4rem; /* Add gap between columns */
+    padding-right: 4rem; 
 }
 
 .leave-table tr:hover {
