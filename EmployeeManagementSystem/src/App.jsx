@@ -1,5 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Link, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import ProjectList from './projectcomponent';
+import AssignProjectForm from './assignprojectform';
+import AssignedProject from './Assingedprojects';
 
 function App() {
   const [data, setData] = useState([]);
@@ -193,14 +196,14 @@ function Projects() {
   return (
     <div>
       <h2>Projects</h2>
-      <button onClick={openModal}>Add Project</button>
-
-      {/* Modal */}
+      <button onClick={openModal}>Assign Project</button>
+      {<ProjectList />}
+      {<AssignedProject />}
       {showModal && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-button" onClick={closeModal}>X</button>
-            {/* Blank content for now */}
+            {<AssignProjectForm />}
           </div>
         </div>
       )}
