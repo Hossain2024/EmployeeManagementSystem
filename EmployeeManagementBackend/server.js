@@ -96,6 +96,17 @@ app.get('/Employee', (req, res)=> {
 })
 
 /**
+ * get training
+ */
+app.get('/training', (req, res)=> {
+    const sql = "SELECT* FROM TRAINING";
+    db.query(sql, (err, data)=>{
+        if(err) return res.json(err);
+        return res.json(data);
+    })
+})
+
+/**
  * edit an emplyee
  */
 
@@ -288,40 +299,64 @@ app.get('/employeesForProject/:projectName', (req, res) => {
     });
 });
 
-//assign projects to certain employees 
-app.post('/assignTraining', (req, res) => {
-    const { EmployeeID, TrainingID, ProjectID, status } = req.body;
-    
-    // Check if required fields are provided
-    if (!EmployeeID || !TrainingID || !ProjectID || !status) {
-        return res.status(400).send({ message: 'Missing required fields' });
+//assign Training to certain employees 
+app.post('/assign-training', (req, res) => {
+    const { FirstName, LastName, Name, Title, Status } = req.body;
+
+    if (!FirstName || !LastName || !Name || !Title || !Status) {
+        return res.status(400).json({ error: 'All fields are required.' });
     }
-    
+
     const query = `
-        INSERT INTO EmpTraining (EmployeeID, TrainingID, ProjectID, status)
-        VALUES (?, ?, ?, ?)
+        INSERT INTO EmpTraining (EmployeeID, TrainingID, ProjectID, Status)
+        VALUES (
+            (SELECT EmployeeID FROM Employee WHERE FirstName = ? AND LastName = ?),
+            (SELECT t.TrainingID FROM Training t 
+             JOIN Project p ON t.ProjectID = p.ProjectID
+             WHERE t.Title = ? AND p.Name = ?),
+            (SELECT ProjectID FROM Project WHERE Name = ?),
+            ?
+        )
     `;
 
-    db.query(query, [EmployeeID, TrainingID, ProjectID, status], (err, result) => {
+    db.query(query, [FirstName, LastName, Title, Name, Name, Status], (err, results) => {
         if (err) {
-            console.log('Error inserting into EmpTraining:', err);
-            return res.status(500).send({ message: 'Error inserting data' });
+            console.error('Error assigning training:', err);
+            return res.status(500).json({ error: 'Failed to assign training.' });
         }
-        res.status(201).send({ message: 'Training assigned successfully', result });
+        res.status(201).json({ message: 'Training assigned successfully!' });
     });
 });
 
-app.get('/assignTraining', (req, res)=> {
-    const sql = "SELECT* FROM EmpTraining";
-    db.query(sql, (err, data)=>{
-        if(err) return res.json(err);
+
+
+app.get('/assignedTraining', (req, res) => {
+    const sql = `
+        SELECT 
+            t.Title, 
+            p.Name, 
+            e.FirstName, 
+            e.LastName
+        FROM 
+            EmpTraining et
+        JOIN
+            TRAINING t ON et.TrainingID = t.TrainingID
+        JOIN 
+            Project p ON et.ProjectID = p.ProjectID
+        JOIN 
+            Employee e ON et.EmployeeID = e.EmployeeID
+    `;
+    
+    db.query(sql, (err, data) => {
+        if (err) return res.json(err);
         return res.json(data);
-    })
-})
+    });
+});
+
 
 
 /**
- * 
+ * leave request
  */
 app.get('/leave-requests', (req, res) => {
     const query = `
@@ -332,8 +367,8 @@ app.get('/leave-requests', (req, res) => {
       COUNT(lr.LeaveRequestID) AS TotalNumberOfRequests
     FROM LeaveRequest lr
     JOIN Employee e ON lr.EmployeeID = e.EmployeeID
-    GROUP BY e.EmployeeID, e.FirstName, e.LastName
-    ORDER BY TotalNumberOfRequests DESC;
+     GROUP BY e.EmployeeID, e.FirstName, e.LastName
+     ORDER BY TotalNumberOfRequests DESC;
   `;
   
   db.query(query, (err, results) => {
@@ -345,6 +380,26 @@ app.get('/leave-requests', (req, res) => {
   });
 });
 
+
+app.get('/leave-requestslist', (req, res) => {
+    const query = `
+    SELECT 
+      e.EmployeeID,
+      e.FirstName,
+      e.LastName,
+      lr.Status
+    FROM LeaveRequest lr
+    JOIN Employee e ON lr.EmployeeID = e.EmployeeID
+  `;
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      res.status(500).json({ error: 'Failed to fetch total leave requests per employee' });
+    } else {
+      res.json(results);
+    }
+  });
+});
 /**
  * get project and nubmer of emplyees for a particualr project 
  */

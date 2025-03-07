@@ -1,0 +1,54 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds space between form elements */
+    max-width: 500px;
+    margin: 0 auto; /* Centers the form horizontally */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  form div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  form select,
+  form input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding and border are included in width */
+  }
+  
+  form select:focus,
+  form input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  form button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  form button:hover {
+    background-color: #0056b3;
+  }
+  

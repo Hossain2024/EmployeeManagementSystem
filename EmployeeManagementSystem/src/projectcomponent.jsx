@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './projectlist.css'
 
 function ProjectList() {
   const [projects, setProjects] = useState([]);
@@ -12,17 +13,25 @@ function ProjectList() {
 
   
     return (
-      <div>
-        <h2>Projects</h2>
-        <ul> {/* Wrap the list items in <ul> */}
+      <div className="project-container">
+      <h2 className="project-header">Projects</h2>
+      <table className="project-table">
+        <thead>
+          <tr>
+            <th>Project Name</th>
+            <th>Department Name</th>
+          </tr>
+        </thead>
+        <tbody>
           {projects.map((project) => (
-            <li key={project.ProjectID}>
-              <strong>Project Name:</strong> {project.ProjectName} <br />
-              <strong>Department Name:</strong> {project.DepartmentName} <br />
-            </li>
+            <tr key={project.ProjectID}>
+              <td>{project.ProjectName}</td>
+              <td>{project.DepartmentName}</td>
+            </tr>
           ))}
-        </ul>
-      </div>
+        </tbody>
+      </table>
+    </div>
     );
 }
 
