@@ -9,7 +9,7 @@
     <h1>Employee Management System</h1>
 
     <h2>How to Run the Project</h2>
-    <p>Due to time constraints, we were only able to implement a few UI features. To test the available functionality, you will need to manually insert data into some tables. Please follow the steps below to set up the project and run both the backend and frontend. Use the followig script to genrate data into the databse</p>
+    <p>Due to time constraints,  we were only able to implement a few UI features. To test the available functionality, you will need to manually insert data into some tables. Please follow the steps below to set up the project and run both the backend and frontend. Use the followig script to genrate data into the databse</p>
 
     <h3>Setting up the Backend</h3>
     <ol>
@@ -59,7 +59,6 @@
     <p>A video clip demonstrating how to test the project is available.</p>
 
     <hr>
-
     <p>Thank you for exploring our Employee Management System!</p>
 </body>
 </html>
