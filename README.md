@@ -9,46 +9,46 @@
     <h1>Employee Management System</h1>
 
     <h2>How to Run the Project</h2>
-    <p>Due to time constraints,  we were only able to implement a few UI features. To test the available functionality, you will need to manually insert data into some tables. Please follow the steps below to set up the project and run both the backend and frontend. Use the followig script to genrate data into the databse</p>
+    <p>Due to time constraints, we were only able to implement a few UI features. To test the available functionality, you will need to manually insert data into some tables. Please follow the steps below to set up the project and run both the backend and frontend. Use the following script to generate data into the database.</p>
 
     <h3>Setting up the Backend</h3>
     <ol>
         <li>Navigate to the backend directory:
-            <pre><code>cd EmployeeManagementBackend</code></pre>
+            <p>cd EmployeeManagementBackend</p>
         </li>
         <li>Ensure you are connected to your MySQL database by configuring the following in your database connection file:
-            <pre><code>const db = mysql.createConnection({
-    host: "your database host",
-    user: "your database user",
-    password: "your database password if any",
-    database: "Emp_Management",
-    port: database port
-});</code></pre>
+            <p>const db = mysql.createConnection({</p>
+            <p>host: "your database host",</p>
+            <p>user: "your database user",</p>
+            <p>password: "your database password if any",</p>
+            <p>database: "Emp_Management",</p>
+            <p>port: database port</p>
+            <p>});</p>
         </li>
         <li>Install dependencies:
-            <pre><code>npm install</code></pre>
+            <p>npm install</p>
         </li>
         <li>Install Express:
-            <pre><code>npm install express</code></pre>
+            <p>npm install express</p>
         </li>
         <li>Install CORS:
-            <pre><code>npm install cors</code></pre>
+            <p>npm install cors</p>
         </li>
         <li>Run the backend server:
-            <pre><code>npm start</code></pre>
+            <p>npm start</p>
         </li>
     </ol>
 
     <h3>Setting up the Frontend</h3>
     <ol>
         <li>Navigate to the frontend directory:
-            <pre><code>cd EmployeeManagementSystem</code></pre>
+            <p>cd EmployeeManagementSystem</p>
         </li>
         <li>Install dependencies:
-            <pre><code>npm install</code></pre>
+            <p>npm install</p>
         </li>
         <li>Start the frontend server:
-            <pre><code>npm run dev</code></pre>
+            <p>npm run dev</p>
         </li>
         <li>Open your browser and navigate to the link displayed in the terminal to view the application.</li>
     </ol>
@@ -62,4 +62,3 @@
     <p>Thank you for exploring our Employee Management System!</p>
 </body>
 </html>
-
