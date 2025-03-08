@@ -14,18 +14,18 @@ Insert sql script here
 
 
 The following **featues** is completed:
--- [] **Add an Employee**
--- [] **Edit an Employee**
--- [] **view employee profile**
--- [] **assign project**
--- [] **view list of projects**
--- [] **view list of assigned projects**
--- [] **view trainings**
--- [] **assign training** 
--- [] **assign training** 
--- [] **show emoloyees on leave**
--- [] **show employees who submiited leave request** 
--- [] **show number of leave request per employee**
+- [ ] **Add an Employee**
+- [ ] **Edit an Employee**
+- [ ] **view employee profile**
+- [ ] **assign project**
+- [ ] **view list of projects**
+- [ ] **view list of assigned projects**
+- [ ] **view trainings**
+- [ ] **assign training** 
+- [ ] **assign training** 
+- [ ] **show emoloyees on leave**
+- [ ] **show employees who submiited leave request** 
+- [ ] **show number of leave request per employee**
 
 ## Setting up the Backend
 naviate to the backend directory

@@ -438,4 +438,8 @@ app.get('/departments', (req, res) => {
       if (err) {
         res.status(500).json({ error: 'Failed to fetch departments and projects' });
       } else {
-     
+        res.json(results);
+      }
+    });
+  });
+  
