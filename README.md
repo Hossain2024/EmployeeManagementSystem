@@ -1,13 +1,13 @@
- *Employee Management System *
+ *Employee Management System*
 
 Submitted by: **Maliha Hossain & Aileen Rosas**
 
-This web app: **insert description**
+This web app: **The Employee management system helps comapany manage thier employees**
 
-Time spent: **X** hours spent in total
+
 
 ## Implemented Features
-### Due to time constraints, we were only able to implement a few UI features. To test the available functionality, you will need to manually insert data into some tables. Please follow the steps below to set up the project and run both the backend and frontend. Use the following script to generate data into the database
+*Due to time constraints, we were only able to implement a few UI features. To test the available functionality, you will need to manually insert data into some tables. Please follow the steps below to set up the project and run both the backend and frontend. Use the following script to generate data into the database*
 
 ## Sql script
 Insert sql script here 
@@ -40,15 +40,16 @@ const db = mysql.createConnection({
     port: database port
 })
 
--- on the terminal, intall npm -- **npm install** 
--- Install express -- **npm install express**
--- Inatall cors -- **npm install cors**
--- run the backend -- **npm start**
+-[] on the terminal, intall npm -- **npm install** 
+-[] Install express : **npm install express**
+-[] Inatall cors:  **npm install cors**
+-[] run the backend:  **npm start**
+
 ## Setting up the frontend
--- Navigate to the frontend directory  cd EmployeeManagementSystem
--- install dependencies **npm install**
--- start the fontend server **npm run dev**
--- Open your browser and navigate to the link displayed in the terminal to view the application
+-[] Navigate to the frontend directory  cd EmployeeManagementSystem
+-[] install dependencies **npm install**
+-[] start the fontend server **npm run dev**
+-[] Open your browser and navigate to the link displayed in the terminal to view the application
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
