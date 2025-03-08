@@ -46,10 +46,10 @@ const db = mysql.createConnection({
 - [ ] *run the backend:  **npm start***
 
 ## Setting up the frontend
--[ ] *Navigate to the frontend directory  **cd EmployeeManagementSystem***
--[ ] *install dependencies **npm install***
--[ ] *start the fontend server **npm run dev***
--[ ] *Open your browser and navigate to the link displayed in the terminal to view the application*
+- [ ] *Navigate to the frontend directory  **cd EmployeeManagementSystem***
+- [ ] *install dependencies **npm install***
+- [ ] *start the fontend server **npm run dev***
+- [ ] *Open your browser and navigate to the link displayed in the terminal to view the application*
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
