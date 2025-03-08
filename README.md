@@ -28,9 +28,9 @@ The following **featues** is completed:
 - [ ] **show number of leave request per employee**
 
 ## Setting up the Backend
-naviate to the backend directory
-**cd  EmployeeManagementBackend**
-Ensure that you are conect to mysql database : 
+- [ ]naviate to the backend directory
+    **cd  EmployeeManagementBackend**
+- [ ]Ensure that you are conect to mysql database : 
 
 const db = mysql.createConnection({
     host: "your database host",
@@ -40,16 +40,16 @@ const db = mysql.createConnection({
     port: database port
 })
 
--- [] *on the terminal, intall npm -- **npm install***
--- [] *Install express : **npm install express***
--- [] *Inatall cors:  **npm install cors***
--- [] *run the backend:  **npm start***
+- [ ] *on the terminal, intall npm -- **npm install***
+- [ ] *Install express : **npm install express***
+- [ ] *Install cors:  **npm install cors***
+- [ ] *run the backend:  **npm start***
 
 ## Setting up the frontend
--[] *Navigate to the frontend directory  **cd EmployeeManagementSystem***
--[] *install dependencies **npm install***
--[] *start the fontend server **npm run dev***
--[] *Open your browser and navigate to the link displayed in the terminal to view the application*
+-[ ] *Navigate to the frontend directory  **cd EmployeeManagementSystem***
+-[ ] *install dependencies **npm install***
+-[ ] *start the fontend server **npm run dev***
+-[ ] *Open your browser and navigate to the link displayed in the terminal to view the application*
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
