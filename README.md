@@ -1,64 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Management System</title>
-</head>
-<body>
-    <h1>Employee Management System</h1>
+ *Employee Management System *
 
-    <h2>How to Run the Project</h2>
-    <p>Due to time constraints, we were only able to implement a few UI features. To test the available functionality, you will need to manually insert data into some tables. Please follow the steps below to set up the project and run both the backend and frontend. Use the following script to generate data into the database.</p>
+Submitted by: **Maliha Hossain & Aileen Rosas**
 
-    <h3>Setting up the Backend</h3>
-    <ol>
-        <li>Navigate to the backend directory:
-            <p>cd EmployeeManagementBackend</p>
-        </li>
-        <li>Ensure you are connected to your MySQL database by configuring the following in your database connection file:
-            <p>const db = mysql.createConnection({</p>
-            <p>host: "your database host",</p>
-            <p>user: "your database user",</p>
-            <p>password: "your database password if any",</p>
-            <p>database: "Emp_Management",</p>
-            <p>port: database port</p>
-            <p>});</p>
-        </li>
-        <li>Install dependencies:
-            <p>npm install</p>
-        </li>
-        <li>Install Express:
-            <p>npm install express</p>
-        </li>
-        <li>Install CORS:
-            <p>npm install cors</p>
-        </li>
-        <li>Run the backend server:
-            <p>npm start</p>
-        </li>
-    </ol>
+This web app: **insert description**
 
-    <h3>Setting up the Frontend</h3>
-    <ol>
-        <li>Navigate to the frontend directory:
-            <p>cd EmployeeManagementSystem</p>
-        </li>
-        <li>Install dependencies:
-            <p>npm install</p>
-        </li>
-        <li>Start the frontend server:
-            <p>npm run dev</p>
-        </li>
-        <li>Open your browser and navigate to the link displayed in the terminal to view the application.</li>
-    </ol>
+Time spent: **X** hours spent in total
 
-    <hr>
+## Implemented Features
+### Due to time constraints, we were only able to implement a few UI features. To test the available functionality, you will need to manually insert data into some tables. Please follow the steps below to set up the project and run both the backend and frontend. Use the following script to generate data into the database
 
-    <h2>Video Demonstration</h2>
-    <p>A video clip demonstrating how to test the project is available.</p>
+## Sql script
+Insert sql script here 
 
-    <hr>
-    <p>Thank you for exploring our Employee Management System!</p>
-</body>
-</html>
+
+The following **featues** is completed:
+[] Add an Employee
+[] Edit an Employee
+[] view employee profile
+[] assign project
+[] view list of projects 
+[] view list of assigned projects
+[] view trainings
+[] assign training 
+[] assign training 
+[] show emoloyees on leave
+[] show employees who submiited leave request. 
+[] show number of leave request per employee
+
+## Setting up the Backend
+naviate to the backend directory
+**cd  EmployeeManagementBackend**
+Ensure that you are conect to mysql database : 
+
+const db = mysql.createConnection({
+    host: "your database host",
+    user : "your database user",
+    password:'your database password if any',
+    database:'Emp_Management',
+    port: database port
+})
+
+-- on the terminal, intall npm -- **npm install** 
+-- Install express -- **npm install express**
+-- Inatall cors -- **npm install cors**
+-- run the backend -- **npm start**
+## Setting up the frontend
+-- Navigate to the frontend directory  cd EmployeeManagementSystem
+-- install dependencies **npm install**
+-- start the fontend server **npm run dev**
+-- Open your browser and navigate to the link displayed in the terminal to view the application
+## Video Walkthrough
+
+Here's a walkthrough of implemented features:
+
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
