@@ -17,7 +17,11 @@ The following **featues** is completed:
 - [ ] **Add an Employee**
 - [ ] **Edit an Employee**
 - [ ] **view employee profile**
+- [ ] **view attendance status in profile**
+- [ ] **search employees by id, name, skills**
+- [ ] **view managers & their employees**
 - [ ] **assign project**
+- [ ] **Deactivate/Activate an employee**
 - [ ] **view list of projects**
 - [ ] **view list of assigned projects**
 - [ ] **view trainings**
@@ -26,6 +30,8 @@ The following **featues** is completed:
 - [ ] **show emoloyees on leave**
 - [ ] **show employees who submiited leave request** 
 - [ ] **show number of leave request per employee**
+- [ ] **show list of all roles and their employees**
+- [ ] **show list of all departments and # of employees**
 
 ## Setting up the Backend
 - [ ]naviate to the backend directory
@@ -55,4 +61,5 @@ const db = mysql.createConnection({
 Here's a walkthrough of implemented features:
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<div style="position: relative; padding-bottom: 56.969026548672566%; height: 0;"><iframe src="https://www.loom.com/embed/c4af225b232c4b978b911ff44bf50b5e?sid=986e90d6-8793-4eac-9233-111277ebc777" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
