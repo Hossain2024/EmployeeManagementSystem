@@ -31,6 +31,9 @@ db.connect((err) => {
     }
 })
 
+/**
+ * retrieve employee data for list
+ */
 app.get('/employees', (req, res) => {
     const sql = `
       SELECT e.EmployeeID, e.FirstName, e.LastName, 
@@ -51,7 +54,7 @@ app.get('/employees', (req, res) => {
 });
 
 /**
- * retreive employee data for profile
+ * retreive employee data for profile view
  */
 app.get('/employee/:id', (req, res) => {
     const employeeId = req.params.id;
@@ -162,6 +165,10 @@ app.get('/employee/:id', (req, res) => {
         }
     });
 });
+
+/**
+ * edit employee info
+ */
 app.put('/update-employee/:id', (req, res) => {
     const employeeId = req.params.id;
     const { FirstName, LastName, Gender, DOB, JoinDate, Ethnicity } = req.body;
