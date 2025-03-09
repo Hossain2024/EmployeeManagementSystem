@@ -1,0 +1,43 @@
+/* Container for the table */
+.assigned-training-container {
+    padding: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  /* Heading */
+  .assigned-training-container h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #333;
+  }
+  
+  /* Table styling */
+  .assigned-training-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Header cells */
+  .assigned-training-table th {
+    background-color: #f0f0f0;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Data cells */
+  .assigned-training-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Row hover effect */
+  .assigned-training-table tr:hover {
+    background-color: #f5f5f5;
+  }
+  
