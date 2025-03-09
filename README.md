@@ -9,10 +9,6 @@ This web app: **The Employee management system helps comapany manage thier emplo
 ## Implemented Features
 *Due to time constraints, we were only able to implement a few UI features. To test the available functionality, you will need to manually insert data into some tables. Please follow the steps below to set up the project and run both the backend and frontend. Use the following script to generate data into the database*
 
-## Sql script
-Insert sql script here 
-
-
 The following **featues** is completed:
 - [ ] **Add an Employee**
 - [ ] **Edit an Employee**
@@ -59,7 +55,5 @@ const db = mysql.createConnection({
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
-
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <div style="position: relative; padding-bottom: 56.969026548672566%; height: 0;"><iframe src="https://www.loom.com/embed/c4af225b232c4b978b911ff44bf50b5e?sid=986e90d6-8793-4eac-9233-111277ebc777" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
