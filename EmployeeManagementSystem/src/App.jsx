@@ -4,6 +4,13 @@
  */
 import { BrowserRouter as Router, Routes, Route, Link, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+
+import Employees from './Employees';
+import Managers from './Managers';
+import Roles from './Roles';
+import Departments from './Departments';
+
+
 import ProjectList from './projectcomponent';
 import AssignProjectForm from './assignprojectform';
 import AssignedProject from './Assingedprojects';
@@ -12,6 +19,7 @@ import PendingLeaveRequests from './onleavecomponent'
 import AssignTrainingForm from './assigntrainingform'
 import AssignedTrainingTable from './trainingdata'
 import LeavesRequestList from './sortedleaves.jsx'
+
 function App() {
   return (
     <Router>
@@ -22,17 +30,12 @@ function App() {
         <div>
           <button>
             <Link to="/employees" style={{ textDecoration: 'none', color: 'black' }}>
-              Employee
+              Employees
             </Link>
           </button>
           <button>
-            <Link to="/update" style={{ textDecoration: 'none', color: 'black' }}>
-              Update Employee
-            </Link>
-          </button>
-          <button>
-            <Link to="/attendance-status" style={{ textDecoration: 'none', color: 'black' }}>
-              Attendance
+            <Link to="/managers" style={{ textDecoration: 'none', color: 'black' }}>
+              Managers
             </Link>
           </button>
           <button>
@@ -65,19 +68,13 @@ function App() {
               Departments
             </Link>
           </button>
-          <button>
-            <Link to="/benefits" style={{ textDecoration: 'none', color: 'black' }}>
-              Employee Benefits
-            </Link>
-          </button>
         </div>
 
         {/* Routes for different pages */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/employees" element={<Employees data={data} />} />
-          <Route path="/update" element={<UpdateInfo data={data} />} />
-          <Route path="/attendance-status" element={<AttendanceStatus data={data} />} />
+          <Route path="/managers" element={<Managers data={data} />} />
           <Route path="/projects" element={<Projects data={data} />} />
           <Route path="/leaves" element={<Leaves />} >
             <Route path="leave-requests" element={<LeaveRequests />} />
@@ -87,7 +84,6 @@ function App() {
           <Route path="/analysis" element={<Analysis />} ></Route>
           <Route path="/roles" element={<Roles />} ></Route>
           <Route path="/departments" element={<Departments />} ></Route>
-          <Route path="/benefits" element={<EmployeeBenefits />} ></Route>
         </Routes>
       </div>
     </Router>
@@ -103,6 +99,8 @@ function Home() {
     </div>
   );
 }
+
+
 
 // Employee info page
 function Employees({ data }) {
@@ -198,6 +196,7 @@ function AttendanceStatus({ data }) {
  * along with the emplyees working on that project
  * @returns content of project tab
  */
+
 function Projects() {
   const [showModal, setShowModal] = useState(false);
 
@@ -208,19 +207,26 @@ function Projects() {
   return (
     <div>
       <h2>Projects</h2>
+
+      <button onClick={openModal}>Add Project</button>
+
+
       <button onClick={openModal}>Assign Project</button>
       {<ProjectList />}
       {<AssignedProject />}
+
       {showModal && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-button" onClick={closeModal}>X</button>
+
+
             {<AssignProjectForm />} {/** form component to assign a project*/}
+
           </div>
         </div>
       )}
 
-      {/* Styling for Larger Modal */}
       <style>
         {`
           .modal-overlay {
@@ -261,6 +267,7 @@ function Projects() {
     </div>
   );
 }
+
 
 function Leaves() {
   return (
@@ -327,7 +334,10 @@ function Training() {
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-button" onClick={closeModal}>X</button>
+
+
             {<AssignTrainingForm />} {/** form to assign table */}
+
           </div>
         </div>
       )}
@@ -386,6 +396,7 @@ function Analysis() {
 }
 
 
+
 function Roles() {
   return (
     <div>
@@ -409,6 +420,7 @@ function EmployeeBenefits() {
     </div>
   );
 }
+
 
 
 export default App;
