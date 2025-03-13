@@ -55,5 +55,5 @@ const db = mysql.createConnection({
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
-https://www.loom.com/embed/c4af225b232c4b978b911ff44bf50b5e?sid=986e90d6-8793-4eac-9233-111277ebc777
+<div style="position: relative; padding-bottom: 56.969026548672566%; height: 0;"><iframe src="https://www.loom.com/embed/c4af225b232c4b978b911ff44bf50b5e?sid=88d5ad27-aaf7-4df8-a63a-737366c96ae6" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
