@@ -55,7 +55,14 @@ const db = mysql.createConnection({
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
-445-project-demo - Watch Video
+<div>
+    <a href="https://www.loom.com/share/c4af225b232c4b978b911ff44bf50b5e">
+      <p>445-project-demo - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/c4af225b232c4b978b911ff44bf50b5e">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/c4af225b232c4b978b911ff44bf50b5e-fe08877bcf3c6cf6-full-play.gif">
+    </a>
+  </div>
 
 
 
