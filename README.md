@@ -1,8 +1,8 @@
- *Employee Management System*
+ # Employee Management System
 
 Submitted by: **Maliha Hossain & Aileen Rosas**
 
-This web app: **The Employee management system helps comapany manage thier employees**
+This web app: **The Employee management system helps comapany manage their employees**
 
 
 
