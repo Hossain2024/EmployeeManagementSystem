@@ -30,7 +30,7 @@ The following **featues** are completed:
 - [ ] **show list of all departments and # of employees**
 
 ## Setting up the Backend
-- [ ]naviate to the backend directory
+- [ ]navigate to the backend directory
     **cd  EmployeeManagementBackend**
 - [ ]Ensure that you are conect to mysql database : 
 
