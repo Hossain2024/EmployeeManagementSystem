@@ -2,7 +2,7 @@
 
 Submitted by: **Maliha Hossain & Aileen Rosas**
 
-This web app: **The Employee management system helps comapany manage their employees**
+This web app: **The Employee management system helps company manage their employees**
 
 
 
