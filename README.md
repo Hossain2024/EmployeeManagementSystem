@@ -9,7 +9,7 @@ This web app: **The Employee management system helps company manage their employ
 ## Implemented Features
 *Due to time constraints, we were only able to implement a few UI features. To test the available functionality, you will need to manually insert data into some tables. Please follow the steps below to set up the project and run both the backend and frontend. Use the following script to generate data into the database*
 
-The following **featues** is completed:
+The following **featues** are completed:
 - [ ] **Add an Employee**
 - [ ] **Edit an Employee**
 - [ ] **view employee profile**
