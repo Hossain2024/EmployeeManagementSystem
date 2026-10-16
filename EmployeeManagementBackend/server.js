@@ -15,16 +15,16 @@ app.use(express.json())
 /**
  * connecting to db 
  */
+#need to fix this 
+// const db = mysql.createConnection({
+//     host: "localhost",
+//     user : "root",
+//     password:'',
+//     database:'Emp_Management',
+//     port:3306,
+//     connectTimeout: 100000
 
-const db = mysql.createConnection({
-    host: "localhost",
-    user : "root",
-    password:'Roza2002',
-    database:'Emp_Management',
-    port:3306,
-    connectTimeout: 100000
-
-})
+// })
 
 app.get('/', (re, res)=>{
     return res.json("from backend side");
